@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema Bibliotecário Faetec - Gerenciamento completo de biblioteca escolar">
+    <meta name="keywords" content="biblioteca, sistema, faetec, gerenciamento, empréstimos, acervo">
+    <title>JDE-Systems - Sistema Bibliotecário</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .project-hero {
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .project-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .project-hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            background: #f8faff;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .breadcrumb a {
+            color: #1e88e5;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #1565c0;
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 0.5rem;
+        }
+
+        .project-section {
+            padding: 4rem 0;
+        }
+
+        .project-section.alt {
+            background: #f8faff;
+        }
+
+        .project-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .project-overview-text h2 {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-overview-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #666;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #1e88e5;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .tech-stack {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin: 2rem 0;
+        }
+
+        .tech-stack h3 {
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .tech-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .tech-item {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #1e88e5;
+        }
+
+        .tech-item i {
+            font-size: 2rem;
+            color: #1e88e5;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-item span {
+            color: #1a1a1a;
+            font-weight: 500;
+            display: block;
+        }
+
+        .specifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .spec-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #1e88e5;
+        }
+
+        .spec-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .spec-card p {
+            color: #666;
+            margin: 0;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1e88e5, #1565c0);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #1e88e5;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #1565c0;
+        }
+
+        .back-link i {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-hero h1 {
+                font-size: 2rem;
+            }
+
+            .project-overview {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .project-overview-text h2 {
+                font-size: 1.8rem;
+            }
+
+            .tech-items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .specifications {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <img src="Logos/Logo 2.0.jpg" alt="JDE-Systems Logo" class="logo-img">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html#home" class="nav-link">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#about" class="nav-link">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#services" class="nav-link">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#portfolio" class="nav-link">Portfólio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#contact" class="nav-link">Contato</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="index.html">Início</a>
+            <span>/</span>
+            <a href="index.html#portfolio">Portfólio</a>
+            <span>/</span>
+            <span>Sistema Bibliotecário Faetec</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="project-hero">
+            <div class="container">
+                <h1>Sistema Bibliotecário Faetec</h1>
+                <p>Solução completa para gerenciamento de acervo, empréstimos e devoluções em instituições de ensino</p>
+            </div>
+        </section>
+
+        <!-- Back Link -->
+        <div class="container" style="margin-top: 2rem;">
+            <a href="index.html#portfolio" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Voltar ao Portfólio
+            </a>
+        </div>
+
+        <!-- Project Overview -->
+        <section class="project-section">
+            <div class="container">
+                <div class="project-overview">
+                    <div class="project-overview-text">
+                        <h2>Sobre o Projeto</h2>
+                        <p>
+                            O Sistema Bibliotecário Faetec é uma solução completa desenvolvida para gerenciar todas as operações de uma biblioteca escolar. O sistema foi especificamente projetado para atender às necessidades da Faetec, uma instituição de ensino de excelência.
+                        </p>
+                        <p>
+                            Com uma interface intuitiva e funcionalidades robustas, o sistema permite o controle eficiente do acervo, registro de empréstimos e devoluções, gerenciamento de multas, e geração de relatórios detalhados. O objetivo é proporcionar uma experiência fluida tanto para bibliotecários quanto para usuários finais.
+                        </p>
+                        <p>
+                            A plataforma foi desenvolvida seguindo as melhores práticas de engenharia de software, garantindo segurança, performance e escalabilidade para atender às demandas de uma instituição educacional.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="image-container">
+                            <img src="image/Tela Home.png" alt="Sistema Bibliotecário Faetec">
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <section class="project-section alt">
+            <div class="container">
+                <h2 style="font-size: 2.2rem; color: #1a1a1a; margin-bottom: 2rem; text-align: center;">Funcionalidades Principais</h2>
+                <div class="project-overview">
+                    <div>
+                        <div class="image-container">
+                            <img src="image/Tela Catalogo.png" alt="Sistema Bibliotecário Faetec">
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="features-list">
+                            <li><strong>Cadastro de Livros:</strong> Sistema completo para adicionar, editar e remover livros do acervo com informações detalhadas como ISBN, autor, editora e data de publicação.</li>
+                            <li><strong>Controle de Empréstimos:</strong> Registro automático de empréstimos com datas de devolução, renovações e histórico de transações.</li>
+                            <li><strong>Gerenciamento de Devoluções:</strong> Processamento de devoluções com cálculo automático de multas por atraso.</li>
+                            <li><strong>Reservas de Livros:</strong> Sistema de reserva que permite aos usuários reservar livros indisponíveis.</li>
+                            <li><strong>Categorização e Busca:</strong> Organização por categorias, gêneros e autores com busca avançada e filtros.</li>
+                            <li><strong>Relatórios Detalhados:</strong> Geração de relatórios sobre acervo, empréstimos, usuários mais ativos e livros mais populares.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screenshots Carousel -->
+        <section class="project-section">
+            <div class="container">
+                <h2 style="font-size: 2.2rem; color: #1a1a1a; margin-bottom: 2rem; text-align: center;">Telas do Sistema</h2>
+                
+                <!-- Carousel Container -->
+                <div class="carousel-container">
+                    <div class="carousel-wrapper">
+                        <div class="carousel-inner">
+                           <!-- Slide 1 -->
+                            <div class="carousel-slide active">
+                                <div class="image-container">
+                                    <img src="image/Tela Home.png" alt="Sistema Bibliotecário Faetec">
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 2 -->
+                            <div class="carousel-slide">
+                                <div class="image-container">
+                                    <img src="image/Tela Catalogo.png" alt="Sistema Bibliotecário Faetec">
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 3 -->
+                            <div class="carousel-slide">
+                                <div class="image-container">
+                                    <img src="image/Dashboard - Admin.png" alt="Sistema Bibliotecário Faetec">
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 4 -->
+                            <div class="carousel-slide">
+                                <div class="image-container">
+                                    <img src="image/Dashboard - Bibliotecário.png" alt="Sistema Bibliotecário Faetec">
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 5 -->
+                            <div class="carousel-slide">
+                                <div class="image-container">
+                                    <img src="image/Dashboard - Usuário.png" alt="Sistema Bibliotecário Faetec">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigation Buttons -->
+                        <button class="carousel-button prev" aria-label="Slide anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-button next" aria-label="Próximo slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        
+                        <!-- Counter -->
+                        <div class="carousel-counter">1 / 5</div>
+                        
+                        <!-- Dots -->
+                        <div class="carousel-controls">
+                            <button class="carousel-dot active" aria-label="Ir para slide 1"></button>
+                            <button class="carousel-dot" aria-label="Ir para slide 2"></button>
+                            <button class="carousel-dot" aria-label="Ir para slide 3"></button>
+                            <button class="carousel-dot" aria-label="Ir para slide 4"></button>
+                            <button class="carousel-dot" aria-label="Ir para slide 5"></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Caption -->
+                    <div class="carousel-caption">
+                        <h3>Principais Telas</h3>
+                        <p>Visão geral do sistema bibliotecário.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies -->
+        <section class="project-section alt">
+            <div class="container">
+                <h2 style="font-size: 2.2rem; color: #1a1a1a; margin-bottom: 2rem; text-align: center;">Tecnologias Utilizadas</h2>
+                <div class="tech-stack">
+                    <h3>Stack Tecnológico</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <i class="fab fa-php"></i>
+                            <span>PHP 7.4+</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-database"></i>
+                            <span>MySQL 5.7+</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-bootstrap"></i>
+                            <span>Bootstrap 4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);">
+                    <h3 style="color: #1a1a1a; margin-bottom: 1rem;">Detalhes Técnicos</h3>
+                    <p style="color: #666; margin-bottom: 1rem;">
+                        <strong>Backend:</strong> O sistema foi desenvolvido em PHP seguindo o padrão MVC (Model-View-Controller), garantindo uma arquitetura limpa e manutenível. Utiliza MySQL como banco de dados relacional para armazenar informações de livros, usuários e transações.
+                    </p>
+                    <p style="color: #666; margin-bottom: 1rem;">
+                        <strong>Frontend:</strong> A interface foi construída com HTML5, CSS3 e JavaScript puro, com Bootstrap 4 para garantir responsividade e design moderno. A experiência do usuário foi otimizada para funcionar em diferentes dispositivos.
+                    </p>
+                    <p style="color: #666;">
+                        <strong>Segurança:</strong> O sistema implementa práticas de segurança robustas incluindo validação de entrada, proteção contra SQL injection, autenticação segura e controle de acesso baseado em papéis.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- CTA Section -->
+        <section class="project-section">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Interessado neste Projeto?</h2>
+                    <p>Conheça mais sobre como o Sistema Bibliotecário Faetec pode transformar a gestão da sua biblioteca.</p>
+                    <a href="index.html#contact" class="btn btn-primary">Solicitar Demonstração</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <a href="#home">
+                            <img src="Logos/logo.png" alt="JDE-Systems Logo" class="logo-img">
+                        </a>
+                    </div>
+                    <p class="footer-description">
+                        Transformando ideias em soluções práticas através de sistemas inovadores 
+                        com foco na experiência do usuário.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Serviços</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Desenvolvimento Web</a></li>
+                        <li><a href="#services">Aplicativos Mobile</a></li>
+                        <li><a href="#services">Sistemas Personalizados</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Empresa</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#portfolio">Portfólio</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Contato</h3>
+                    <div class="footer-contact">
+                        <a href="mailto:jdesystens@gmail.com" style="text-decoration: none;" target="_blank"><p><i class="fas fa-envelope"></i> jdesystens@gmail.com</p></a>
+                        <a href="https://www.contate.me/5524999666237" style="text-decoration: none;" target="_blank"><p><i class="fas fa-phone"></i> +55 (24) 99966-6237</p></a>
+                        <a href="https://www.instagram.com/jde_systems/" style="text-decoration: none;" target="_blank"><p><i class="fab fa-instagram"></i> @jde_systems</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 JDE-Systems. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
